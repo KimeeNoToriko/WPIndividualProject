@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Zakat Calculator</title>
+        <script>
+            function calculateZakat() {
+                let yearlyIncome = parseFloat(document.getElementById("yearlyIncome").value);
+                if (isNaN(yearlyIncome)) {
+                    alert("Please enter a valid number for yearly income.");
+                    return;
+                }
+                let zakatAmount = (2.5 / 100) * yearlyIncome;
+                document.getElementById("result").innerText = `Your Zakat Pendapatan Amount:`+ zakatAmount;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Zakat Calculator</h1>
+        <hr>
+        <label for="yearlyIncome">Enter Your Yearly Income (MYR): </label>
+        <input type="text" id="yearlyIncome">
+        <br>
+        <button onclick="calculateZakat()">Calculate Zakat</button>
+        <div id = "result"></div>
+    </body>
+</html>
