@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>BMI Calculator</title>
+        <script>
+            function calculateBMI() {
+                const weightInput = parseFloat(document.getElementById("weightInput").value);
+                const heightInput = parseFloat(document.getElementById("heightInput").value);
+                const heightInMeters = heightInput / 100;
+                const bmi = weightInput / (heightInMeters * heightInMeters);
+
+                var status;
+                if (bmi < 16.0) {
+                    status = "Severely Underweight";
+                } else if (bmi >= 16.0 && bmi < 18.5) {
+                    status = "Underweight";
+                } else if (bmi >= 18.5 && bmi < 25.0) {
+                    status = "Normal Weight";
+                } else if (bmi >= 25.0 && bmi < 30.0) {
+                    status = "Overweight";
+                } else {
+                    status = "Obese";
+                }
+                const resultElement = document.getElementById("result");
+                resultElement.innerHTML = `Your BMI: ${bmi.toFixed(2)}<br>Status: ${status}`;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>BMI Calculator</h1>
+        <hr>
+        <label for="heightInput">Enter your height (cm):</label>
+        <input type="text" id="heightInput">
+        <br>
+        <label for="weightInput">Enter your weight (kg):</label>
+        <input type="text" id="weightInput">
+        <br>
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <div id="result"></div>
+    </body>
+</html>
